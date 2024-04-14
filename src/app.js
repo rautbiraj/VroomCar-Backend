@@ -43,7 +43,7 @@ app.options('*', cors());
 app.use(cookieParser());
 
 // jwt authentication
-app.use(jwt());
+// app.use(jwt());
 
 // connect to postgres database
 app.use((req, _, next) => {
@@ -55,7 +55,9 @@ app.use((req, _, next) => {
 if (config.env === 'production') {
 	app.use('/v1/auth', authLimiter);
 }
-
+app.route('/v1').get((req,res)=>{
+	res.send("Welcome to vroom cars base api")
+});
 // v1 api routes
 app.use('/v1', routes);
 

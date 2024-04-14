@@ -25,8 +25,10 @@ const envVarsSchema = Joi.object()
 
 		SQL_USERNAME: Joi.string().description('sqldb username'),
 		SQL_HOST: Joi.string().description('sqldb host'),
+		SQL_PORT: Joi.string().description('sqldb port'),
+
 		SQL_DATABASE_NAME: Joi.string().description('sqldb database name'),
-		SQL_PASSWORD: Joi.string().description('sqldb password'),
+		// SQL_PASSWORD: Joi.string().description('sqldb password').empty(),
 		SQL_DIALECT: Joi.string()
 			.default('postgres')
 			.description('type of sqldb'),
@@ -81,7 +83,9 @@ module.exports = {
 	sqlDB: {
 		user: envVars.SQL_USERNAME,
 		host: envVars.SQL_HOST,
+		port:envVars.SQL_PORT,
 		database: envVars.SQL_DATABASE_NAME,
+
 		password: envVars.SQL_PASSWORD,
 		dialect: envVars.SQL_DIALECT,
 		pool: {
