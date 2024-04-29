@@ -5,6 +5,7 @@ async function isRevoked(_req, _payload, done) {
 	done();
 }
 
+//function for session token
 function jwt() {
 	const { secret } = config.jwt;
 	return expressJwt({
